@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UX Synthesizer
+
+An AI-powered tool that transforms raw UX research data into organized, actionable insights.
+
+## Features
+
+- 🧠 **AI-Powered Analysis**: Upload interview transcripts, survey comments, and usability notes
+- 🎯 **Pain Points & Motivations**: Automatically surface user pain points and core motivations
+- 📊 **Theme Identification**: Discover emerging themes with supporting quotes
+- 👥 **Persona Generation**: Create draft user personas based on research data
+- 🗂️ **Affinity Mapping**: Visualize clustered insights in interactive affinity maps
+- ⚡ **Fast Results**: Get insights in minutes, not hours
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ installed
+- OpenAI API key (get one at https://platform.openai.com)
+
+### Installation
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Add your OpenAI API key to `.env.local`:
+```
+OPENAI_API_KEY=your_actual_api_key_here
+```
+
+### Running the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Upload Research Data**: Click to upload a file or paste your research data directly
+   - Supports interview transcripts, survey responses, usability notes
+   - Accepts .txt, .doc, .docx, .pdf files
 
-## Learn More
+2. **Analyze**: Click "Analyze Research Data" to process your content
 
-To learn more about Next.js, take a look at the following resources:
+3. **Review Insights**: Explore the generated insights:
+   - User pain points
+   - Motivations and drivers
+   - Emerging themes with quotes
+   - Affinity map visualization
+   - User personas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Export & Use**: Use the insights to inform your design decisions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- **Frontend**: Next.js 15, React, TypeScript, Tailwind CSS
+- **AI**: OpenAI GPT-4
+- **Icons**: Lucide React
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+ux-synthesizer/
+├── app/
+│   ├── api/
+│   │   └── analyze/
+│   │       └── route.ts          # AI analysis API endpoint
+│   ├── layout.tsx                # Root layout
+│   └── page.tsx                  # Main page
+├── components/
+│   ├── UploadSection.tsx         # File upload & text input
+│   ├── InsightsDisplay.tsx       # Main insights display
+│   ├── PersonaCard.tsx           # Persona visualization
+│   └── AffinityMap.tsx           # Affinity mapping display
+└── .env.local                    # Environment variables
+```
+
+## Development
+
+### Customizing AI Analysis
+
+Edit the system prompt in `/app/api/analyze/route.ts` to:
+- Change the analysis framework
+- Adjust the number of insights generated
+- Add new analysis dimensions
+- Customize persona templates
+
+## Deployment
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+1. Push your code to GitHub
+2. Import your repository in Vercel
+3. Add your `OPENAI_API_KEY` environment variable
+4. Deploy!
+
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## License
+
+MIT License - feel free to use this project for your own research needs!
+
+---
+
+Built with ❤️ for UX researchers who want to spend less time organizing data and more time understanding users.
+
