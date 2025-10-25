@@ -6,7 +6,7 @@ import { tmpdir } from 'os';
 // Force Node.js runtime for PDF processing
 export const runtime = 'nodejs';
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   let tempFilePath: string | null = null;
   
   try {
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     // Use pdf2json which works in Node.js without worker issues
     const PDFParser = (await import('pdf2json')).default;
     
-    return new Promise((resolve) => {
+    return new Promise<NextResponse>((resolve) => {
       const pdfParser = new (PDFParser as any)(null, 1);
       
       let extractedText = '';

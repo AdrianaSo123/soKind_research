@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 // Force Node.js runtime
 export const runtime = 'nodejs';
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const formData = await request.formData();
     const file = formData.get('file') as File;
