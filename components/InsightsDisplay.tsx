@@ -1,8 +1,9 @@
 'use client';
 
-import { ArrowLeft, AlertCircle, Heart, TrendingUp, Users, Download } from 'lucide-react';
+import { ArrowLeft, AlertCircle, Heart, TrendingUp, Users, Download, BookOpen } from 'lucide-react';
 import PersonaCard from './PersonaCard';
 import AffinityMap from './AffinityMap';
+import CodebookDisplay from './CodebookDisplay';
 
 interface InsightsDisplayProps {
   data: {
@@ -11,6 +12,7 @@ interface InsightsDisplayProps {
     themes: { theme: string; quotes: string[]; principle?: string }[];
     personas: any[];
     affinityGroups: { category: string; items: string[] }[];
+    codebook?: { code: string; definition: string; frequency: number; examples: string[]; category?: string }[];
     recommendations?: { priority: string; issue: string; recommendation: string; principle?: string }[];
   };
   onReset: () => void;
@@ -239,6 +241,22 @@ export default function InsightsDisplay({ data, onReset }: InsightsDisplayProps)
               );
             })}
           </div>
+        </section>
+      )}
+
+      {/* Codebook */}
+      {data.codebook && data.codebook.length > 0 && (
+        <section className="bg-white rounded-xl border-2 border-sage-200 p-10 shadow-md hover:shadow-lg transition-shadow">
+          <div className="flex items-start gap-4 mb-8 pb-6 border-b-2 border-sage-200">
+            <div className="w-14 h-14 bg-amber-50 rounded-lg flex items-center justify-center border-2 border-amber-200 shadow-sm">
+              <BookOpen className="w-7 h-7 text-amber-700" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-serif font-bold text-black mb-1">Research Codebook</h3>
+              <p className="text-sm text-gray-800 font-sans font-medium">Systematic documentation of all identified patterns and themes</p>
+            </div>
+          </div>
+          <CodebookDisplay codebook={data.codebook} />
         </section>
       )}
 

@@ -267,24 +267,27 @@ export default function UploadSection({ onAnalysisComplete, isAnalyzing, setIsAn
                 </p>
                 <div className="space-y-3 text-base text-gray-900 font-sans font-medium">
                   <p className="flex items-center gap-3">
-                    <span className="w-2.5 h-2.5 bg-gray-900 rounded-full"></span>
-                    Identifying usability heuristic violations
+                    <span className="w-2.5 h-2.5 bg-gray-900 rounded-full animate-pulse"></span>
+                    Reading and parsing research data
                   </p>
                   <p className="flex items-center gap-3">
-                    <span className="w-2.5 h-2.5 bg-gray-900 rounded-full"></span>
-                    Extracting user goals and motivations
+                    <span className="w-2.5 h-2.5 bg-gray-900 rounded-full animate-pulse delay-75"></span>
+                    Identifying patterns and themes
                   </p>
                   <p className="flex items-center gap-3">
-                    <span className="w-2.5 h-2.5 bg-gray-900 rounded-full"></span>
-                    Synthesizing patterns and themes
+                    <span className="w-2.5 h-2.5 bg-gray-900 rounded-full animate-pulse delay-150"></span>
+                    Building codebook and personas
                   </p>
                   <p className="flex items-center gap-3">
-                    <span className="w-2.5 h-2.5 bg-gray-900 rounded-full"></span>
-                    Building user archetypes and recommendations
+                    <span className="w-2.5 h-2.5 bg-gray-900 rounded-full animate-pulse delay-200"></span>
+                    Generating recommendations
                   </p>
                 </div>
-                <p className="text-sm text-gray-700 mt-5 font-sans font-semibold">
-                  Estimated time: 10-15 seconds
+                <div className="mt-5 bg-gray-200 rounded-full h-2 overflow-hidden">
+                  <div className="bg-gray-900 h-full rounded-full animate-[progress_15s_ease-in-out_forwards]"></div>
+                </div>
+                <p className="text-sm text-gray-700 mt-3 font-sans font-semibold">
+                  Analysis typically takes 10-20 seconds
                 </p>
               </div>
             </div>

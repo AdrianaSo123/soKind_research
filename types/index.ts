@@ -35,12 +35,21 @@ export interface Persona {
   avatar?: string;
 }
 
+export interface CodebookEntry {
+  code: string;
+  definition: string;
+  frequency: number;
+  examples: string[];
+  category?: string;
+}
+
 export interface AnalysisResult {
   painPoints: string[];
   motivations: string[];
   themes: Theme[];
   affinityGroups: AffinityGroup[];
   personas: Persona[];
+  codebook?: CodebookEntry[];
 }
 
 export interface AnalysisRequest {
